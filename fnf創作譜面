@@ -1,0 +1,47 @@
+import time
+
+def greet_user():
+    while True:
+        name = input("Please enter your name: ")
+        confirm = input(f"You entered '{name}'. Is this correct? (yes/no): ").strip().lower()
+        if confirm == 'yes':
+            print(f"Hello, {name}! Welcome to the task. Let's get started!")
+            print("You can change your name later.")
+            print("Please wait a moment while the game settings begin...")
+            time.sleep(2)  # Simulate a brief wait
+            display_game_settings()
+            break
+        elif confirm == 'no':
+            print("Let's try again.")
+        else:
+            print("Invalid input. Please type 'yes' or 'no'.")
+
+def display_game_settings():
+    print("Game settings are now displayed.")
+    while True:
+        hide_content = input("This game contains some sensitive content. Would you like to hide it? (yes/no): ").strip().lower()
+        if hide_content == 'yes':
+            print("Sensitive content will be hidden.")
+            break
+        elif hide_content == 'no':
+            print("Sensitive content will not be hidden.")
+            break
+        else:
+            print("Invalid input. Please type 'yes' or 'no'.")
+
+    while True:
+        try:
+            volume = int(input("Please set the volume (0-10): "))
+            if 0 <= volume <= 10:
+                print(f"Volume set to {volume}.")
+                break
+            else:
+                print("Invalid input. Volume must be between 0 and 10.")
+        except ValueError:
+            print("Invalid input. Please enter a number between 0 and 10.")
+
+    print("This is the end of the general settings. The rest are in-game settings such as graphics, FPS numerical display, settings to hide the stamina gauge, and many other things. Please set them up as you like.")
+    print("Have a good trip!")
+    print("Starting the game...")
+    time.sleep(2)  # Simulate a brief wait
+    print("Game start screen is now displayed.")
